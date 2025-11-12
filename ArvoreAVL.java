@@ -1,4 +1,4 @@
-public class queenBeeAVL {
+public class ArvoreAVL {
     public No raiz;
 
     public void excluirArvore() {
