@@ -27,38 +27,99 @@ public class main {
             System.out.print("11. Sair\n");
             System.out.print("escolha: ");
             opcao = sc.nextInt();
+            sc.nextLine(); // limpa buffer
 
             switch(opcao) {
                 case 1:
-                    System.out.print("Inserir dados de funcionários na empresa Axion:\n");
+                    System.out.print("\n--- Inserir dados de funcionários na empresa Axion ---\n");
+                    System.out.print("Nome completo: ");
+                    nome = sc.nextLine();
+                    System.out.print("Data de nascimento: ");
+                    dataN = sc.nextLine();
+                    System.out.print("Data de contratação: ");
+                    dataC = sc.nextLine();
+                    System.out.print("Departamento: ");
+                    dep = sc.nextLine();
+                    System.out.print("Cargo: ");
+                    cargo = sc.nextLine();
+                    System.out.print("Salário: ");
+                    salario = sc.nextDouble();
+                    sc.nextLine();
+
+                        // Inserção na árvore AVL da Axion (ID null apois Axion não tem IDs)
+                    axionAVL.inserir(0, nome, dataN, dataC, dep, cargo, salario);
+                    System.out.println("Funcionário inserido com sucesso em Axion!\n");
                     break;
+
                 case 2:
-                    System.out.print("Exibir lista de dados dos funcionários de Axion ordenados pelo Nome Completo\n");
+                    System.out.print("\n--- Lista de funcionários da Axion ---\n");
+                    axionAVL.exibirEmOrdem();
                     break;
+
                 case 3:
+                    System.out.print("\n--- Inserir dados de funcionários na empresa Titanium ---\n");
+                    System.out.print("ID: ");
+                    ID = sc.nextInt();
+                    sc.nextLine();
+                    System.out.print("Nome completo: ");
+                    nome = sc.nextLine();
+                    System.out.print("Data de nascimento: ");
+                    dataN = sc.nextLine();
+                    System.out.print("Data de contratação: ");
+                    dataC = sc.nextLine();
+                    System.out.print("Departamento: ");
+                    dep = sc.nextLine();
+                    System.out.print("Cargo: ");
+                    cargo = sc.nextLine();
+                    System.out.print("Salário: ");
+                    salario = sc.nextDouble();
+                    sc.nextLine();
+
+                    titaniumAVL.inserir(ID, nome, dataN, dataC, dep, cargo, salario);
+                    System.out.println("Funcionário inserido com sucesso em Titanium!\n");
                     break;
+
                 case 4:
+                    System.out.print("\n--- Lista de funcionários da Titanium ---\n");
+                    titaniumAVL.exibirEmOrdem();
                     break;
+
                 case 5:
+                    System.out.print("\n[Função de unificação Axion + Titanium ainda não implementada]\n");
                     break;
+
                 case 6:
+                    System.out.print("\n[Função de inserção em QueenBee ainda não implementada]\n");
                     break;
+
                 case 7:
+                    System.out.print("\n[Função de exibição da QueenBee ainda não implementada]\n");
                     break;
+
                 case 8:
+                    System.out.print("\n[Função de busca por letra ainda não implementada]\n");
                     break;
+
                 case 9:
+                    System.out.print("\n[Função de busca por nome ainda não implementada]\n");
                     break;
+
                 case 10:
+                    System.out.print("\n[Função de salários mais altos ainda não implementada]\n");
                     break;
+
                 case 11:
-                    System.out.print("\n~~Programa finalizado~~\n");
+                    System.out.print("\n~~ Programa finalizado ~~\n");
                     continua = false;
                     break;
+
                 default:
-                    System.out.print("Digite um valor válido detre as opções!\n")
+                    System.out.print("Digite um valor válido dentre as opções!\n");
+                    break;
             }
 
         } while(continua);
+
+        sc.close();
     }
 }
