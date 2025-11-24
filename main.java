@@ -46,7 +46,6 @@ public class main {
                     salario = sc.nextDouble();
                     sc.nextLine();
 
-                        // Inserção na árvore AVL da Axion (ID null apois Axion não tem IDs)
                     axionAVL.inserir(0, nome, dataN, dataC, dep, cargo, salario);
                     System.out.println("Funcionário inserido com sucesso em Axion!\n");
                     break;
@@ -84,28 +83,90 @@ public class main {
                     titaniumAVL.exibirEmOrdem();
                     break;
 
+                // ==========================
+                //   FUNÇÕES COMPLETADAS
+                // ==========================
+
                 case 5:
-                    System.out.print("\n[Função de unificação Axion + Titanium ainda não implementada]\n");
+                    System.out.println("\n--- Unificando Axion + Titanium em QueenBee ---");
+
+                    queenBeeAVL.excluirArvore();
+
+                    java.util.ArrayList<No> listaA = axionAVL.coletarEmLista();
+                    java.util.ArrayList<No> listaT = titaniumAVL.coletarEmLista();
+
+                    int total = listaA.size() + listaT.size();
+                    int novoID = 1;
+
+                    for (No f : listaA) {
+                        f.ID = novoID++;
+                        queenBeeAVL.inserirNoExistente(f);
+                    }
+
+                    for (No f : listaT) {
+                        f.ID = novoID++;
+                        queenBeeAVL.inserirNoExistente(f);
+                    }
+
+                    System.out.println("Unificação concluída!\n");
                     break;
 
                 case 6:
-                    System.out.print("\n[Função de inserção em QueenBee ainda não implementada]\n");
+                    System.out.print("\n--- Inserir novo funcionário em QueenBee ---\n");
+                    System.out.print("Nome completo: ");
+                    nome = sc.nextLine();
+                    System.out.print("Data de nascimento: ");
+                    dataN = sc.nextLine();
+                    System.out.print("Data de contratação: ");
+                    dataC = sc.nextLine();
+                    System.out.print("Departamento: ");
+                    dep = sc.nextLine();
+                    System.out.print("Cargo: ");
+                    cargo = sc.nextLine();
+                    System.out.print("Salário: ");
+                    salario = sc.nextDouble();
+                    sc.nextLine();
+
+                    int proxID = queenBeeAVL.coletarEmLista().size() + 1;
+
+                    queenBeeAVL.inserir(proxID, nome, dataN, dataC, dep, cargo, salario);
+
+                    System.out.println("Funcionário inserido com sucesso em QueenBee!\n");
                     break;
 
                 case 7:
-                    System.out.print("\n[Função de exibição da QueenBee ainda não implementada]\n");
+                    System.out.print("\n--- Funcionários de QueenBee ---\n");
+                    queenBeeAVL.exibirEmOrdem();
                     break;
 
                 case 8:
-                    System.out.print("\n[Função de busca por letra ainda não implementada]\n");
+                    System.out.print("Digite a letra inicial: ");
+                    char letra = sc.nextLine().charAt(0);
+
+                    System.out.println("\n--- Funcionários que começam com '" + letra + "' ---");
+                    queenBeeAVL.listarPorLetra(letra);
                     break;
 
                 case 9:
-                    System.out.print("\n[Função de busca por nome ainda não implementada]\n");
+                    System.out.print("Nome completo para busca: ");
+                    nome = sc.nextLine();
+
+                    No resultado = queenBeeAVL.buscarPorNome(nome);
+
+                    if (resultado == null)
+                        System.out.println("Funcionário não encontrado.\n");
+                    else
+                        System.out.println("\n" + resultado.toString() + "\n");
+
                     break;
 
                 case 10:
-                    System.out.print("\n[Função de salários mais altos ainda não implementada]\n");
+                    System.out.print("Quantos funcionários deseja listar? ");
+                    int nSal = sc.nextInt();
+                    sc.nextLine();
+
+                    System.out.println("\n--- Top " + nSal + " salários da QueenBee ---");
+                    queenBeeAVL.topNSalarios(nSal);
                     break;
 
                 case 11:
