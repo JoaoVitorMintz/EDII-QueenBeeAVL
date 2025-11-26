@@ -130,7 +130,7 @@ public class ArvoreAVL {
 
     // Coletar nós em ArrayList para ordenações externas
     public java.util.ArrayList<No> coletarEmLista() {
-        java.util.ArrayList<No> lista = new java.util.ArrayList<>();
+        java.util.ArrayList<No> lista = new java.util.ArrayList<>(); // Lista do próprio java apenas para facilitar.
         coletarEmLista(this.raiz, lista);
         return lista;
     }

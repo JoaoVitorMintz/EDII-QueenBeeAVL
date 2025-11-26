@@ -83,10 +83,6 @@ public class main {
                     titaniumAVL.exibirEmOrdem();
                     break;
 
-                // ==========================
-                //   FUNÇÕES COMPLETADAS
-                // ==========================
-
                 case 5:
                     System.out.println("\n--- Unificando Axion + Titanium em QueenBee ---");
 
