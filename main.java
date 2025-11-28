@@ -83,9 +83,7 @@ public class main {
                     titaniumAVL.exibirEmOrdem();
                     break;
 
-                // ==========================
-                //   FUNÇÕES COMPLETADAS
-                // ==========================
+               
 
                 case 5:
                     System.out.println("\n--- Unificando Axion + Titanium em QueenBee ---");
@@ -95,17 +93,32 @@ public class main {
                     java.util.ArrayList<No> listaA = axionAVL.coletarEmLista();
                     java.util.ArrayList<No> listaT = titaniumAVL.coletarEmLista();
 
-                    int total = listaA.size() + listaT.size();
                     int novoID = 1;
 
+                    // AXION → cria novos nós
                     for (No f : listaA) {
-                        f.ID = novoID++;
-                        queenBeeAVL.inserirNoExistente(f);
+                        queenBeeAVL.inserir(
+                            novoID++,
+                            f.nome,
+                            f.dataN,
+                            f.dataC,
+                            f.dep,
+                            f.cargo,
+                            f.salario
+                        );
                     }
 
+                    // TITANIUM → cria novos nós
                     for (No f : listaT) {
-                        f.ID = novoID++;
-                        queenBeeAVL.inserirNoExistente(f);
+                        queenBeeAVL.inserir(
+                            novoID++,
+                            f.nome,
+                            f.dataN,
+                            f.dataC,
+                            f.dep,
+                            f.cargo,
+                            f.salario
+                        );
                     }
 
                     System.out.println("Unificação concluída!\n");
@@ -148,16 +161,18 @@ public class main {
                     break;
 
                 case 9:
-                    System.out.print("Nome completo para busca: ");
+                    System.out.print("\nNome completo para busca: ");
                     nome = sc.nextLine();
 
-                    No resultado = queenBeeAVL.buscarPorNome(nome);
+                    java.util.ArrayList<No> lista = queenBeeAVL.buscarTodosPorNome(nome);
 
-                    if (resultado == null)
-                        System.out.println("Funcionário não encontrado.\n");
-                    else
-                        System.out.println("\n" + resultado.toString() + "\n");
-
+                    if (lista.isEmpty()) {
+                        System.out.println("Nenhum funcionário encontrado.");
+                    } else {
+                        for (No f : lista) {
+                            System.out.println(f.toString());
+                        }
+                    }
                     break;
 
                 case 10:

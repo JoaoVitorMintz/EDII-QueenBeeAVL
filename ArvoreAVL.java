@@ -165,4 +165,26 @@ public class ArvoreAVL {
             funcionario.salario
         );
     }
+
+    // =====================================================
+    // NOVO: Buscar TODOS os funcionários com mesmo nome
+    // =====================================================
+
+    public java.util.ArrayList<No> buscarTodosPorNome(String nome) {
+        java.util.ArrayList<No> lista = new java.util.ArrayList<>();
+        buscarTodosPorNome(this.raiz, nome, lista);
+        return lista;
+    }
+
+    private void buscarTodosPorNome(No no, String nome, java.util.ArrayList<No> lista) {
+        if (no == null) return;
+
+        buscarTodosPorNome(no.esq, nome, lista);
+
+        if (no.nome.equalsIgnoreCase(nome)) {
+            lista.add(no);
+        }
+
+        buscarTodosPorNome(no.dir, nome, lista);
+    }
 }
