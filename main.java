@@ -83,8 +83,6 @@ public class main {
                     titaniumAVL.exibirEmOrdem();
                     break;
 
-               
-
                 case 5:
                     System.out.println("\n--- Unificando Axion + Titanium em QueenBee ---");
 
@@ -95,7 +93,6 @@ public class main {
 
                     int novoID = 1;
 
-                    // AXION → cria novos nós
                     for (No f : listaA) {
                         queenBeeAVL.inserir(
                             novoID++,
@@ -108,7 +105,6 @@ public class main {
                         );
                     }
 
-                    // TITANIUM → cria novos nós
                     for (No f : listaT) {
                         queenBeeAVL.inserir(
                             novoID++,
